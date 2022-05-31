@@ -16,6 +16,7 @@ matvec.cu
 2. Nutzen Sie die gleiche Matrix $A$ zu Berechnung von
   $A^Tx=y $, indem Sie die Indizes der Matrix $A$ vertauschen.\\
  Welchen Einfluss hat dies auf die Berechnungszeit?
+ 
 3. Vergleichen Sie die Zeiten mit einer reinen CPU Implementierung.
 
 Nutzen Sie die Templates in \texttt{02\_matvec} und geben Sie Ihren Code zusammen mit der Zeitmessung bis nächste Woche Montag in Moodle ab.
