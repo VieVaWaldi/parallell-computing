@@ -4,7 +4,7 @@
 
 
 //increment wird auf host und device definiert
-__host__ __device__ int increment(int a) 
+__host__ __device__ int increment(int a)
 {
      return a+1;
 }
