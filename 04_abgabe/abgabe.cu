@@ -208,19 +208,21 @@ int main(int argc, char**argv)
    if (argc > 1)
    {
       i=atoi(argv[1]);
-      cacheConf=atoi(argv[2]);
 
-      if (cacheConf == 1) {
-         printf("Using cudaFuncCachePreferL1\n");
-         cudaFuncSetCacheConfig( kernel_Ax_simple, cudaFuncCachePreferL1 );
-         cudaFuncSetCacheConfig( kernel_Ax_SMAtomicEnd, cudaFuncCachePreferL1 );
-         cudaFuncSetCacheConfig( kernel_Ax_SMAtomicEnd, cudaFuncCachePreferL1 );
-      }
-      else if (cacheConf == 2) {
-         printf("Using cudaFuncCachePreferShared\n");
-         cudaFuncSetCacheConfig( kernel_Ax_simple, cudaFuncCachePreferShared );
-         cudaFuncSetCacheConfig( kernel_Ax_SMAtomicEnd, cudaFuncCachePreferShared );
-         cudaFuncSetCacheConfig( kernel_Ax_SMAtomicEnd, cudaFuncCachePreferShared );
+      if (argc > 2) {
+         cacheConf=atoi(argv[2]);
+         if (cacheConf == 1) {
+            printf("Using cudaFuncCachePreferL1\n");
+            cudaFuncSetCacheConfig( kernel_Ax_simple, cudaFuncCachePreferL1 );
+            cudaFuncSetCacheConfig( kernel_Ax_SMAtomicEnd, cudaFuncCachePreferL1 );
+            cudaFuncSetCacheConfig( kernel_Ax_SMAtomicEnd, cudaFuncCachePreferL1 );
+         }
+         else if (cacheConf == 2) {
+            printf("Using cudaFuncCachePreferShared\n");
+            cudaFuncSetCacheConfig( kernel_Ax_simple, cudaFuncCachePreferShared );
+            cudaFuncSetCacheConfig( kernel_Ax_SMAtomicEnd, cudaFuncCachePreferShared );
+            cudaFuncSetCacheConfig( kernel_Ax_SMAtomicEnd, cudaFuncCachePreferShared );
+         }
       }
    }
    else 
@@ -228,7 +230,7 @@ int main(int argc, char**argv)
       printf("Usage: %s [problemMultiplier] [chacheConf]\n", argv[0]);
       return -1;
    }
-
+   
    // Problemgröße 1024 multipliziert mit i
    int prob = 1024;
    int size = prob * i;
